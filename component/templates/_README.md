@@ -1,6 +1,6 @@
 # <%= name %>
 
-[![Build Status](https:/travis-ci.org/eHealthAfrica/<%= name %>.svg?branch=master](https://magnum.travis-ci.com/eHealthAfrica/<%= name %>)
+[![Build Status](https:/travis-ci.org/eHealthAfrica/<%= name %>.svg?branch=master)](https://magnum.travis-ci.com/eHealthAfrica/<%= name %>)
 
 ## Usage
 
