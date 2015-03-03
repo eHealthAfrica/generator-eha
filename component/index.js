@@ -113,6 +113,10 @@ module.exports = generators.Base.extend({
       {
         src: '_.gitignore',
         dest: '.gitignore'
+      },
+      {
+        src: '_CHANGELOG.md',
+        dest: 'CHANGELOG.md'
       }
     ];
 
