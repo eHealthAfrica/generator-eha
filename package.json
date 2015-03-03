@@ -1,0 +1,23 @@
+{
+  "name": "generator-eha",
+  "version": "0.0.0",
+  "description": "eHealthAfrica App & Component Generator",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eHealthAfrica/generator-eha.git"
+  },
+  "homepage": "http://ehealthafrica.org",
+  "dependencies": {
+    "yeoman-generator": "^0.18.9"
+  },
+  "author": "Matt Richards <oss@ehealthafrica.org>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.3.0",
+    "load-grunt-tasks": "^3.1.0"
+  }
+}
