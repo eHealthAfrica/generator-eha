@@ -45,7 +45,7 @@ module.exports = generators.Base.extend({
 
   scaffoldFolders: function() {
     this.mkdir('src');
-    this.mkdir('test');
+    this.mkdir('tests');
   },
   copyTemplates: function() {
     var _this = this;
