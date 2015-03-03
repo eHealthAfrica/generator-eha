@@ -109,6 +109,10 @@ module.exports = generators.Base.extend({
       {
         src: '_.jshintrc',
         dest: '.jshintrc'
+      },
+      {
+        src: '_.gitignore',
+        dest: '.gitignore'
       }
     ];
 
