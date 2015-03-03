@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - unreleased
 
+## v1.0.2 - 03/02/2015
+
 ### Added
 - Add CHANGELOG
 - Add CHANGELOG template for component generator
