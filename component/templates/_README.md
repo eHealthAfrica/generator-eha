@@ -1,6 +1,6 @@
 # <%= name %>
 
-[![Build Status](https:/travis-ci.org/eHealthAfrica/<%= name %>.svg?branch=master)](https://magnum.travis-ci.com/eHealthAfrica/<%= name %>)
+[![Build Status](https://travis-ci.org/eHealthAfrica/<%= name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= name %>)
 
 ## Usage
 
@@ -21,7 +21,7 @@ The distribution bundle comes in 2 flavours, one with templates, one without - a
 - *dist/angular-eha-back-button.template.js* *(default)*
 - *dist/angular-eha-back-button.template.min.js*
 
-Then simply add `<%= componentNamespace %>.<%= componentName %>` and `<%= componentNamespace %>.<%= componentName %>.templates` (if you want templates!) as a dependencies somewhere in your project that makes sense and you're good to go.
+Then simply add `<%= componentNamespace %>.<%= componentName %>` and `<%= componentNamespace %>.<%= componentName %>.templates` (if you want templates!) as dependencies somewhere in your project that makes sense and you're good to go.
 
 #### A note on wiredep
 

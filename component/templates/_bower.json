@@ -10,7 +10,7 @@
     "node"
   ],
   "keywords": <%= JSON.stringify(keywords) %>,
-  "main": "",
+  "main": "dist/<%= name %>.templates.js",
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",
