@@ -4,6 +4,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - unreleased
 
+
+## v1.0.4 - 04/02/2015
+
+### Fixed
+
+- Fixed typo in component/templates/_package.json
+
+## v1.0.3 - 04/02/2015
+
+### Changed
+- Tweaks to component templates
+
+
 ## v1.0.2 - 03/02/2015
 
 ### Added
