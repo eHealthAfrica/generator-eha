@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/eHealthAfrica/<%= name %>/issues"
   },
-  "homepage": "http://ehealtharfica.org",
+  "homepage": "http://ehealthafrica.org",
   "devDependencies": {
     "angular": "^1.3.13",
     "angular-mocks": "^1.3.13",
