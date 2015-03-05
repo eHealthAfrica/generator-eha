@@ -1,6 +1,6 @@
-# <%= name %>
+# <%= config.name %>
 
-[![Build Status](https://travis-ci.org/eHealthAfrica/<%= name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= name %>)
+[![Build Status](https://travis-ci.org/eHealthAfrica/<%= config.name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= config.name %>)
 
 ## Usage
 
@@ -8,31 +8,31 @@
 
 Install with npm:
 
-    npm install --save git@github.com:eHealthAfrica/<%= name %>.git
+    npm install --save git@github.com:eHealthAfrica/<%= config.name %>.git
 
 Or alternatively bower:
 
-    bower install --save git@github.com:eHealthAfrica/<%= name %>.git
+    bower install --save git@github.com:eHealthAfrica/<%= config.name %>.git
 
 The distribution bundle comes in 2 flavours, one with templates, one without - as well as providing both minified and unminfied versions of both, so take your pick:
 
-- *dist/<%= name %>.js*
-- *dist/<%= name %>.min.js*
+- *dist/<%= config.name %>.js*
+- *dist/<%= config.name %>.min.js*
 - *dist/angular-eha-back-button.template.js* *(default)*
 - *dist/angular-eha-back-button.template.min.js*
 
-Then simply add `<%= componentNamespace %>.<%= componentName %>` and `<%= componentNamespace %>.<%= componentName %>.templates` (if you want templates!) as dependencies somewhere in your project that makes sense and you're good to go.
+Then simply add `<%= config.NAMESPACE %>.<%= config.name %>` and `<%= config.NAMESPACE %>.<%= config.name %>.templates` (if you want templates!) as dependencies somewhere in your project that makes sense and you're good to go.
 
 #### A note on wiredep
 
-If you're using wiredep `dist/<%= name %>.template.js` will be injected by default. If you don't want that to happen you'll like want to employ something along the following lines in your `Gruntfile`:
+If you're using wiredep `dist/<%= config.name %>.template.js` will be injected by default. If you don't want that to happen you'll like want to employ something along the following lines in your `Gruntfile`:
 
 ```javascript
 wiredep: {
  ...
   options: {
     exclude: [
-      'bower_components/<%= name %>/dist/<%= name %>.templates.js'
+      'bower_components/<%= config.name %>/dist/<%= config.name %>.templates.js'
     ]
   }
   ...
@@ -48,10 +48,10 @@ Then you're free to include whichever bundle you prefer in what ever manner you 
   <head>
     <title>Back Button Example</title>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular/<%= name %>.js"></script>
+    <script src="bower_components/angular/<%= config.name %>.js"></script>
     <script>
     angular.module('backButtonExample', [
-        '<%= componentNamespace %>.<%= componentName %>'
+        '<%= config.moduleName %>'
     ]);
     </script>
   </head>
@@ -76,11 +76,11 @@ Then you're free to include whichever bundle you prefer in what ever manner you 
 
 ```bash
 # Fork the upstream repo on github and pull down your fork
-git clone git@github.com:yourusername/<%= name %>.git
+git clone git@github.com:youruserconfig.name/<%= config.name %>.git
 # change into project folder
-cd <%= name %>
+cd <%= config.name %>
 # Add the upstream as a remote
-git remote add upstream  git@github.com:eHealthAfrica/<%= name %>.git
+git remote add upstream  git@github.com:eHealthAfrica/<%= config.name %>.git
 # Install the dev dependencies
 npm install
 ```
@@ -98,7 +98,7 @@ The test suite is configured to run in Firefox and is powered by:
 - Chai (as promised)
 - Sinon (chai)
 
-The library is conducive to TDD.  `grunt test:watch` is your friend. As modules (and templates) are exposed on their own namespaces you can easily isolate areas of the codebase for true unit testing without being forced to pull in the whole library or stub/mock modules irrelevent to the feature(s) you're testing.
+The library is conducive to TDD.  `grunt test:watch` is your friend. As modules (and templates) are exposed on their own config.namespaces you can easily isolate areas of the codebase for true unit testing without being forced to pull in the whole library or stub/mock modules irrelevent to the feature(s) you're testing.
 
 #### Running Tests
 
@@ -163,11 +163,11 @@ Publishing to bower is slightly simpler in so far that you only have to do it on
 e.g.
 
 ```
-bower register <%= name %> https://github.com/eHealthAfrica/<%= name %>git
+bower register <%= config.projectName %> https://github.com/eHealthAfrica/<%= config.name %>git
 ```
 ## License
 
-Copyright <%= year %> <%= author %>
+Copyright <%= config.year %> <%= config.authorName %> <<%= config.authorEmail %>>
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at
 

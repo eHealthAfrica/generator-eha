@@ -1,16 +1,16 @@
 {
-  "name": "<%= name %>",
-  "description": "<%= description %>",
+  "name": "<%= config.name %>",
+  "description": "<%= config.description %>",
   "version": "0.0.0",
   "authors": [
-    "oss@ehealthafrica.org"
+    "<%= config.author %>"
   ],
   "moduleType": [
     "globals",
     "node"
   ],
-  "keywords": <%= JSON.stringify(keywords) %>,
-  "main": "dist/<%= name %>.templates.js",
+  "keywords": <%= JSON.stringify(config.keywords) %>,
+  "main": "dist/<%= config.name %>.templates.js",
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",

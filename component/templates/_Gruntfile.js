@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         ],
         dest: 'dist/',
         rename: function(dest, src) {
-          return dest + src.replace('scripts','<%= name %>');
+          return dest + src.replace('scripts','<%= config.name %>');
         }
       }
     },
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'dist/<%= name %>.min.js': ['.tmp/scripts.js'],
-          'dist/<%= name %>.templates.min.js': ['.tmp/scripts.templates.js']
+          'dist/<%= config.name %>.min.js': ['.tmp/scripts.js'],
+          'dist/<%= config.name %>.templates.min.js': ['.tmp/scripts.templates.js']
         }
       }
     },
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
       dist: {
         src: ['src/**/*.tpl.html'],
         dest: '.tmp/templates.js',
-        module: '<%= componentNamespace %>.<%= componentName %>.templates',
+        module: '<%= config.NAMESPACE %>.<%= config.name %>.templates',
         options: {
           rename: function(moduleName) {
             var parts = moduleName.split('/');

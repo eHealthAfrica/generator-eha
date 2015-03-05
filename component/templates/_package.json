@@ -1,20 +1,20 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= config.name %>",
   "version": "0.0.0",
-  "description": "<%= description %>",
-  "main": "dist/<%= name %>.templates.js",
+  "description": "<%= config.description %>",
+  "main": "dist/<%= config.name %>.templates.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eHealthAfrica/<%= name %>.git"
+    "url": "https://github.com/eHealthAfrica/<%= config.name %>.git"
   },
-  "author": "eHealthAfrica <oss@ehealthafrica.org>",
+  "author": "<%= config.author %>",
   "license": "Apache-2.0",
-  "keywords": <%= JSON.stringify(keywords) %>,
+  "keywords": <%= JSON.stringify(config.keywords) %>,
   "bugs": {
-    "url": "https://github.com/eHealthAfrica/<%= name %>/issues"
+    "url": "https://github.com/eHealthAfrica/<%= config.name %>/issues"
   },
   "homepage": "http://ehealthafrica.org",
   "devDependencies": {
