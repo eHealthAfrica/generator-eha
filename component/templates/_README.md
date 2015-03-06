@@ -1,4 +1,4 @@
-# <%= config.name %>
+# <%= config.projectName %>
 
 [![Build Status](https://travis-ci.org/eHealthAfrica/<%= config.name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= config.name %>)
 
@@ -8,31 +8,31 @@
 
 Install with npm:
 
-    npm install --save git@github.com:eHealthAfrica/<%= config.name %>.git
+    npm install --save <%= config.projectName %>
 
 Or alternatively bower:
 
-    bower install --save git@github.com:eHealthAfrica/<%= config.name %>.git
+    bower install --save <%= config.projectName %>
 
-The distribution bundle comes in 2 flavours, one with templates, one without - as well as providing both minified and unminfied versions of both, so take your pick:
+### Distribution bundle
 
 - *dist/<%= config.name %>.js*
 - *dist/<%= config.name %>.min.js*
-- *dist/angular-eha-back-button.template.js* *(default)*
-- *dist/angular-eha-back-button.template.min.js*
+<% if (hasFeature('template')) { %>- *dist/<%= config.name %>.templates.js* *(default)*
+- *dist/<%= config.name %>.templates.min.js*<% } %>
 
-Then simply add `<%= config.NAMESPACE %>.<%= config.name %>` and `<%= config.NAMESPACE %>.<%= config.name %>.templates` (if you want templates!) as dependencies somewhere in your project that makes sense and you're good to go.
+Then simply add `<%= config.moduleName %>` as dependencies somewhere in your project that makes sense and you're good to go.
 
 #### A note on wiredep
 
-If you're using wiredep `dist/<%= config.name %>.template.js` will be injected by default. If you don't want that to happen you'll like want to employ something along the following lines in your `Gruntfile`:
+If you're using wiredep `dist/<%= config.name %><% if (hasFeature('template')) { %>.template<% } %>.js` will be injected by default. If you don't want that to happen you'll like want to employ something along the following lines in your `Gruntfile`:
 
 ```javascript
 wiredep: {
  ...
   options: {
     exclude: [
-      'bower_components/<%= config.name %>/dist/<%= config.name %>.templates.js'
+      'bower_components/<%= config.name %>/dist/<%= config.name %><% if (hasFeature('template')) { %>.template<% } %>.js'
     ]
   }
   ...
@@ -48,10 +48,10 @@ Then you're free to include whichever bundle you prefer in what ever manner you 
   <head>
     <title>Back Button Example</title>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular/<%= config.name %>.js"></script>
+    <script src="bower_components/<%= config.projectName %>/dist/<%= config.name %><% if (hasFeature('template')) { %>.template<% } %>.js"></script>
     <script>
     angular.module('backButtonExample', [
-        '<%= config.moduleName %>'
+      '<%= config.moduleName %>'
     ]);
     </script>
   </head>
@@ -76,11 +76,11 @@ Then you're free to include whichever bundle you prefer in what ever manner you 
 
 ```bash
 # Fork the upstream repo on github and pull down your fork
-git clone git@github.com:youruserconfig.name/<%= config.name %>.git
+git clone git@github.com:yourusername/<%= config.projectName %>.git
 # change into project folder
-cd <%= config.name %>
+cd <%= config.projectName %>
 # Add the upstream as a remote
-git remote add upstream  git@github.com:eHealthAfrica/<%= config.name %>.git
+git remote add upstream  git@github.com:eHealthAfrica/<%= config.projectName %>.git
 # Install the dev dependencies
 npm install
 ```
@@ -98,7 +98,7 @@ The test suite is configured to run in Firefox and is powered by:
 - Chai (as promised)
 - Sinon (chai)
 
-The library is conducive to TDD.  `grunt test:watch` is your friend. As modules (and templates) are exposed on their own config.namespaces you can easily isolate areas of the codebase for true unit testing without being forced to pull in the whole library or stub/mock modules irrelevent to the feature(s) you're testing.
+The library is conducive to TDD.  `grunt test:watch` is your friend. As modules (and templates) are exposed on their own namespace you can easily isolate areas of the code base for true unit testing without being forced to pull in the whole library or stub/mock modules irrelevant to the feature(s) you're testing.
 
 #### Running Tests
 
@@ -144,7 +144,7 @@ e.g:
 
 ```bash
   grunt release:minor
-  git pull-request -b eHealthAfrica:master
+  git pull-request -b <upstream_repo>:master
   git push upstream --tags
 ```
 
@@ -163,7 +163,7 @@ Publishing to bower is slightly simpler in so far that you only have to do it on
 e.g.
 
 ```
-bower register <%= config.projectName %> https://github.com/eHealthAfrica/<%= config.name %>git
+bower register <%= config.projectName %> <upstream_repo_url>
 ```
 ## License
 
@@ -174,4 +174,3 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.
-

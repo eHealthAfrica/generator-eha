@@ -1,16 +1,21 @@
 {
-  "name": "<%= config.name %>",
+  "name": "<%= config.projectName %>",
   "description": "<%= config.description %>",
   "version": "0.0.0",
   "authors": [
-    "<%= config.author %>"
+    "<%= config.authorName %> <<%= config.authorEmail %>>"
   ],
   "moduleType": [
     "globals",
     "node"
   ],
+  "homepage": "<%= config.homepage %>",
   "keywords": <%= JSON.stringify(config.keywords) %>,
-  "main": "dist/<%= config.name %>.templates.js",
+  "main": "dist/<%= config.name %><% if (hasFeature('template')) { %>.template<% } %>.js",
+  <% if (config.gitRepoUrl) { %>"repository": {
+    "type": "git",
+    "url": "<%= config.gitRepoUrl %>"
+  },<% } %>
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",

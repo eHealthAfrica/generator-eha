@@ -11,9 +11,13 @@
 
   ngModule.factory('<%= config.componentName %>Factory', function() {
 
+    var method = function() {
+
+    };
+
     // Public API
     return {
-
+      method: method
     };
 
   });

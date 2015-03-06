@@ -10,8 +10,11 @@
 
   ngModule.directive('<%= config.componentName %>', function() {
     return {
-      // Write your DDO here
-    }
+      <% if (hasFeature('template')) { %>templateUrl: 'templates/<%= config.name %>.template.tpl.html',<% } %>
+      link: function(scope, element, attributes) {
+
+      }
+    };
   });
 
   // Check for and export to commonjs environment

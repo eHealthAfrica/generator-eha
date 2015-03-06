@@ -10,7 +10,9 @@
                   .module('<%= config.moduleName %>.service', []);
 
   ngModule.service('<%= config.componentName %>Service', function() {
+    this.method = function() {
 
+    };
   });
 
   // Check for and export to commonjs environment

@@ -10,7 +10,7 @@ module.exports = generators.Base.extend({
       {name: 'Service', value: 'service', suffix: '.service'},
       {name: 'Factory', value: 'factory', suffix: '.factory'},
       {name: 'Filter', value: 'filter', suffix: '.filter'},
-      {name: 'Template', value: 'template', suffix: '.templates'}
+      {name: 'Template', value: 'template', suffix: '.template'}
     ];
 
     this.hasFeature = function(feature) {
@@ -87,6 +87,11 @@ module.exports = generators.Base.extend({
           return this.validators
                   .isRequired(input, 'Please enter a URL');
         }.bind(this)
+      },
+      {
+        type: 'input',
+        name: 'gitRepoUrl',
+        message: 'GIT Repo. URL'
       },
       {
         type: 'checkbox',
@@ -190,48 +195,11 @@ module.exports = generators.Base.extend({
 
           this.templates.push({
             src: 'tests/unit/_' + feature.value + '.spec.js',
-            dest: 'tests/unit/' + this.config.name + feature.suffix + '.js'
+            dest: 'tests/unit/' + this.config.name + feature.suffix + '.spec.js'
           });
         }
       }
     }.bind(this));
-
-    // if (this.hasFeature('filter')) {
-    //   this.templates.push({
-    //     src: 'src/_filter.js',
-    //     dest: 'src/' + this.config.name + '.filter.js'
-    //   });
-    //
-    //   this.templates.push({
-    //     src: 'tests/unit/_filter.spec.js',
-    //     dest: 'tests/unit/' + this.config.name + '.filter.spec.js'
-    //   });
-    // }
-    //
-    // if (this.hasFeature('service')) {
-    //   this.templates.push({
-    //     src: 'src/_service.js',
-    //     dest: 'src/' + this.config.name + '.service.js'
-    //   });
-    //
-    //   this.templates.push({
-    //     src: 'tests/unit/_service.spec.js',
-    //     dest: 'tests/unit/' + this.config.name + '.service.spec.js'
-    //   });
-    // }
-    //
-    // if (this.hasFeature('factory')) {
-    //   this.templates.push({
-    //     src: 'src/_factory.js',
-    //     dest: 'src/' + this.config.name + '.factory.js'
-    //   });
-    //
-    //   this.templates.push({
-    //     src: 'tests/unit/_factory.spec.js',
-    //     dest: 'tests/unit/' + this.config.name + '.factory.spec.js'
-    //   });
-    // }
-    //
 
     this.templates.push({
       src: 'src/_index.js',
