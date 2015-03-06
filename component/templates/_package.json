@@ -1,31 +1,26 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= config.projectName %>",
   "version": "0.0.0",
-  "description": "<%= description %>",
-  "main": "dist/<%= name %>.templates.js",
+  "description": "<%= config.description %>",
+  "main": "dist/<%= config.name %><% if (hasFeature('template')) { %>.template<% } %>.js",
   "scripts": {
     "test": "grunt test"
   },
-  "repository": {
+  <% if (config.gitRepoUrl) { %>"repository": {
     "type": "git",
-    "url": "https://github.com/eHealthAfrica/<%= name %>.git"
-  },
-  "author": "eHealthAfrica <oss@ehealthafrica.org>",
+    "url": "<%= config.gitRepoUrl %>"
+  },<% } %>
+  "author": "<%= config.authorName %> <<%= config.authorEmail %>>",
   "license": "Apache-2.0",
-  "keywords": <%= JSON.stringify(keywords) %>,
-  "bugs": {
-    "url": "https://github.com/eHealthAfrica/<%= name %>/issues"
-  },
-  "homepage": "http://ehealthafrica.org",
+  "keywords": <%= JSON.stringify(config.keywords) %>,
+  "homepage": "<%= config.homepage %>",
   "devDependencies": {
     "angular": "^1.3.13",
     "angular-mocks": "^1.3.13",
     "angular-ui-router": "^0.2.13",
-    "browserify-ngannotate": "^0.7.1",
     "chai": "^2.0.0",
     "chai-as-promised": "^4.2.0",
     "grunt": "^0.4.5",
-    "grunt-browserify": "^3.4.0",
     "grunt-bump": "^0.3.0",
     "grunt-concat": "^0.1.6",
     "grunt-contrib-clean": "^0.6.0",
@@ -50,8 +45,7 @@
     "lodash": "^3.2.0",
     "mocha": "^2.1.0",
     "optimist": "^0.6.1",
-    "sinon": "^1.12.2",
-    "uglifyify": "^3.0.1"
+    "sinon": "^1.12.2"
   },
   "dependencies": {}
 }

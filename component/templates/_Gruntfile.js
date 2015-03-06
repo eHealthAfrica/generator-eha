@@ -14,11 +14,11 @@ module.exports = function(grunt) {
         cwd: '.tmp',
         src: [
           'scripts.js',
-          'scripts.templates.js'
+          'scripts.template.js'
         ],
         dest: 'dist/',
         rename: function(dest, src) {
-          return dest + src.replace('scripts','<%= name %>');
+          return dest + src.replace('scripts','<%= config.name %>');
         }
       }
     },
@@ -28,14 +28,27 @@ module.exports = function(grunt) {
           'src/**/*.js',
           '!src/**/*.spec.js'
         ],
-        dest: '.tmp/scripts.js'
+        dest: '.tmp/scripts.js',
+        options: {
+          process: function(src, path) {
+            // Remove templates dependency from non-templates version if exists
+            return src.replace(/,\n    '<%= config.NAMESPACE %>\.<%= config.name %>\.template'/, '');
+          }
+        }
       },
-      templates: {
+      scriptsWithTemplateDeps:{
         src: [
-          '.tmp/scripts.js',
-          '.tmp/templates.js'
+          'src/**/*.js',
+          '!src/**/*.spec.js'
         ],
-        dest: '.tmp/scripts.templates.js'
+        dest: '.tmp/scripts.template.deps.js'
+      },
+      template: {
+        src: [
+          '.tmp/template.js',
+          '.tmp/scripts.template.deps.js'
+        ],
+        dest: '.tmp/scripts.template.js'
       }
     },
     ngAnnotate: {
@@ -52,16 +65,16 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'dist/<%= name %>.min.js': ['.tmp/scripts.js'],
-          'dist/<%= name %>.templates.min.js': ['.tmp/scripts.templates.js']
+          'dist/<%= config.name %>.template.min.js': ['.tmp/scripts.template.js'],
+          'dist/<%= config.name %>.min.js': ['.tmp/scripts.js']
         }
       }
     },
     html2js: {
       dist: {
         src: ['src/**/*.tpl.html'],
-        dest: '.tmp/templates.js',
-        module: '<%= componentNamespace %>.<%= componentName %>.templates',
+        dest: '.tmp/template.js',
+        module: '<%= config.NAMESPACE %>.<%= config.name %>.template',
         options: {
           rename: function(moduleName) {
             var parts = moduleName.split('/');
@@ -115,16 +128,17 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('templates', ['html2js']);
-  grunt.registerTask('test', ['html2js', 'jshint', 'jscs', 'karma:unit']);
+  grunt.registerTask('template', ['html2js']);
+  grunt.registerTask('test', ['template', 'jshint', 'jscs', 'karma:unit']);
   grunt.registerTask('test:watch', ['karma:watch']);
 
   grunt.registerTask('build', function() {
     grunt.task.run([
       'clean',
-      'templates',
+      <% if (hasFeature('template')) { %>'template',<% } %>
       'concat:scripts',
-      'concat:templates',
+      <% if (hasFeature('template')) { %>'concat:scriptsWithTemplateDeps',<% } %>
+      <% if (hasFeature('template')) { %>'concat:template',<% } %>
       'ngAnnotate',
       'copy:scripts',
       'uglify:dist'
@@ -136,7 +150,7 @@ module.exports = function(grunt) {
       'build',
       'bump:' + target
     ])
-  })
+  });
 
   grunt.registerTask('default', ['jshint', 'jscs', 'build']);
 
