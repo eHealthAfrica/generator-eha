@@ -34,7 +34,6 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'NAMESPACE',
         message: 'Namespace',
-        default: 'ng',
         validate: function (input) {
           return this.validators
                   .isRequired(input, 'You must specify a namespace');
