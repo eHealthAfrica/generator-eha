@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - unreleased
 
+### Added
+
+-  Added grunt watch task
+
 ## v1.1.0 - 09/03/2015
 
 ### Added

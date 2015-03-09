@@ -8,6 +8,14 @@ module.exports = function(grunt) {
       dist: ['dist/'],
       tmp: ['.tmp/']
     },
+    watch: {
+      dist: {
+        files: [
+          'src/**/*'
+        ],
+        tasks: ['build']
+      }
+    },
     copy: {
       scripts: {
         expand: true,
