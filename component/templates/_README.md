@@ -114,6 +114,10 @@ grunt test
 grunt test:watch
 ```
 
+### Local Development
+
+Local development is made easy, simply make use of either `npm link` or `bower link` to link the local component to your client application and then use `grunt watch` to continuously build the project.
+
 ### Transpiling templates (html2js)
 
 Transpiling our html templates into js allows us to neatly push them into the `$templateCache`.
