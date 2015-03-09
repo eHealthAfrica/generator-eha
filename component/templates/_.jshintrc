@@ -20,5 +20,11 @@
   "smarttabs": true,
   "globals": {
     "angular": false,
+    "describe": false,
+    "expect": false,
+    "beforeEach": false,
+    "it": false,
+    "sinon": false,
+    "inject": false
   }
 }

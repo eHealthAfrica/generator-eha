@@ -1,16 +1,21 @@
 {
-  "name": "<%= name %>",
-  "description": "<%= description %>",
+  "name": "<%= config.projectName %>",
+  "description": "<%= config.description %>",
   "version": "0.0.0",
   "authors": [
-    "oss@ehealthafrica.org"
+    "<%= config.authorName %> <<%= config.authorEmail %>>"
   ],
   "moduleType": [
     "globals",
     "node"
   ],
-  "keywords": <%= JSON.stringify(keywords) %>,
-  "main": "dist/<%= name %>.templates.js",
+  "homepage": "<%= config.homepage %>",
+  "keywords": <%= JSON.stringify(config.keywords) %>,
+  "main": "dist/<%= config.name %><% if (hasFeature('template')) { %>.template<% } %>.js",
+  <% if (config.gitRepoUrl) { %>"repository": {
+    "type": "git",
+    "url": "<%= config.gitRepoUrl %>"
+  },<% } %>
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",

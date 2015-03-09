@@ -4,8 +4,21 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - unreleased
 
+## v1.1.0 - 09/03/2015
 
-## v1.0.4 - 04/02/2015
+### Added
+- Added support for configurable scaffolding, support for:
+  - Services
+  - Factories
+  - Directives
+  - Filters
+  - Templates
+
+### Changed
+- Refactored build script
+- Removed default value from namespace
+
+## v1.0.4 - 04/03/2015
 
 ### Fixed
 
