@@ -1,6 +1,6 @@
 # <%= config.projectName %>
 
-[![Build Status](https://travis-ci.org/eHealthAfrica/<%= config.name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= config.name %>)
+[![Build Status](https://travis-ci.org/eHealthAfrica/<%= config.name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= config.name %>) ![Dependecy Status](https://david-dm.org/eHealthAfrica/<%= config.name %>.svg) ![Dev Dependecy Status](https://david-dm.org/eHealthAfrica/<%= config.name %>/dev-status.svg)
 
 ## Usage
 
@@ -113,6 +113,10 @@ grunt test
 ```bash
 grunt test:watch
 ```
+
+### Local Development
+
+Local development is made easy, simply make use of either `npm link` or `bower link` to link the local component to your client application and then use `grunt watch` to continuously build the project.
 
 ### Transpiling templates (html2js)
 
