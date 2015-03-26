@@ -19,7 +19,7 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'src/**/*.js',
       'tests/**/*.spec.js',
-      '.tmp/templates.js'
+      '.tmp/template.js'
     ],
 
     // list of files to exclude

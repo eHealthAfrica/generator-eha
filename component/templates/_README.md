@@ -1,6 +1,6 @@
 # <%= config.projectName %>
 
-[![Build Status](https://travis-ci.org/eHealthAfrica/<%= config.name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= config.name %>)
+[![Build Status](https://travis-ci.org/eHealthAfrica/<%= config.name %>.svg)](https://travis-ci.org/eHealthAfrica/<%= config.name %>) ![Dependecy Status](https://david-dm.org/eHealthAfrica/<%= config.name %>.svg) ![Dev Dependecy Status](https://david-dm.org/eHealthAfrica/<%= config.name %>/dev-status.svg)
 
 ## Usage
 
