@@ -133,6 +133,15 @@ module.exports = function(grunt) {
         config: ".jscsrc",
         requireCurlyBraces: [ "if" ]
       }
+    },
+    watch: {
+      scripts: {
+        files: ['./src/**'],
+        tasks: ['build'],
+        options: {
+          spawn: false
+        }
+      }
     }
   });
 
@@ -140,6 +149,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['template', 'jshint', 'jscs', 'karma:unit']);
   grunt.registerTask('test:watch', ['karma:watch']);
 
+  grunt.registerTask('build:watch', ['build', 'watch']);
   grunt.registerTask('build', function() {
     grunt.task.run([
       'clean',

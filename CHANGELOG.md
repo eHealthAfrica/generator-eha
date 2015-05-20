@@ -6,7 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
--  Added grunt watch task
+- Added grunt watch task
+
+### Fixed
+
+- Incorrect Coverage path
 
 ## v1.1.0 - 09/03/2015
 
