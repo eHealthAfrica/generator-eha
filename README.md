@@ -12,6 +12,9 @@ A Yo generator for scaffolding out Angular.js apps and components
 # Install the generator
 npm i -g generator-eha
 
+# Create a directory for your component and change directory
+mkdir component-name && cd component-name
+
 # Run it, follow prompts
 yo eha:component
 ```
